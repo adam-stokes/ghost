@@ -4,11 +4,11 @@ Deploys Ghost with MySQL.
 
 # Usage
 
-    juju quickstart bundle:~adam-stokes/ghost-mysql
+    juju quickstart bundle:~adam-stokes/ghost
 
 Or if on Juju 1.26 or later
 
-    juju deploy cs:bundle/~adam-stokes/ghost-mysql
+    juju deploy cs:bundle/~adam-stokes/ghost
 
 # License
 
