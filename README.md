@@ -1,20 +1,21 @@
-# Ghost Bundle
+# Name
 
-Deploys Ghost with MySQL.
+Ghost - Ghost blogging with MySQL.
 
 # Usage
 
-    juju quickstart u/adam-stokes/ghost-mysql
+    conjure-up battlemidget/ghost
 
-Or if on Juju 1.26 or later
+# Description
 
-    juju deploy cs:bundle/~adam-stokes/ghost-mysql
+This is a conjure-up spell for deploying highly available Ghost blogging with
+MySQL supported out of the box.
 
 # License
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Adam Stokes <adam.stokes@ubuntu.com>
+Copyright (c) 2016 Adam Stokes <adam.stokes@ubuntu.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
