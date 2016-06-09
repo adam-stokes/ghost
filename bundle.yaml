@@ -22,14 +22,14 @@ services:
       vip_cidr: 24
       vip_iface: eth0
   ghost:
-    charm: "cs:~adam-stokes/trusty/ghost-6"
+    charm: "cs:~adam-stokes/trusty/ghost"
     num_units: 1
     expose: True
     annotations:
       "gui-x": "694"
       "gui-y": "395"
   haproxy:
-    charm: "cs:trusty/haproxy-14"
+    charm: "cs:trusty/haproxy"
     num_units: 1
     expose: True
     annotations:
