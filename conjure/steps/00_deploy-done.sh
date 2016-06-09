@@ -12,7 +12,7 @@ if [ $(unitStatus ghost 0) != "active" ]; then
     exposeResult "Ghost is not ready yet" 0 "false"
 fi
 
-if [ $(unitStatus mysql 0) != "active" ]; then
+if [ $(unitJujuStatus mysql 0) != "idle" ]; then
     exposeResult "MySQL is not ready yet" 0 "false"
 fi
 
