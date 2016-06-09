@@ -6,11 +6,6 @@ Ghost - Ghost blogging with MySQL.
 
     conjure-up battlemidget/ghost
 
-# Description
-
-This is a conjure-up spell for deploying highly available Ghost blogging with
-MySQL supported out of the box.
-
 # License
 
 The MIT License (MIT)

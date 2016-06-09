@@ -39,3 +39,8 @@ relations:
     - "ghost:database"
   - - "ghost:website"
     - "haproxy:reverseproxy"
+tags:
+  - conjure-blog
+  - conjure-blogging
+description: |
+  Ghost is an Open Source application which allows you to write and publish your own blog, giving you the tools to make it easy and even fun to do. It's simple, elegant, and designed so that you can spend less time making your blog work and more time blogging.
