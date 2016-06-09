@@ -4,7 +4,7 @@ Ghost - Ghost blogging with MySQL.
 
 # Usage
 
-    conjure-up battlemidget/ghost
+    conjure-up ~conjure/ghost
 
 # License
 
