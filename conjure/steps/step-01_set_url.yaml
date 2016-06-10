@@ -1,0 +1,7 @@
+title: Ghost blog URL
+description: Enter the URL of your blog
+additional-input:
+  - label: Blog URL
+    key: BLOGURL
+    type: text
+    default: http://localhost
