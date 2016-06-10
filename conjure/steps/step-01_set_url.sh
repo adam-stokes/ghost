@@ -2,4 +2,6 @@
 
 . /usr/share/conjure-up/hooklib/common.sh
 
-exposeResult "Visit your Ghost application at http://$(unitAddress haproxy 0)" 0 "true"
+debug "Setting Blog URL to $BLOGURL"
+
+exposeResult "Visit your Ghost application at $BLOGURL" 0 "true"
