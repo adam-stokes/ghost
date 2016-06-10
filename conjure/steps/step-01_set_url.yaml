@@ -1,5 +1,6 @@
 title: Ghost blog URL
 description: Enter the URL of your blog
+viewable: True
 additional-input:
   - label: Blog URL
     key: BLOGURL
