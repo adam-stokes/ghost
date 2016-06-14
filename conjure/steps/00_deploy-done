@@ -1,24 +1,33 @@
-#!/bin/bash
+#!/usr/bin/env python3
 
-. /usr/share/conjure-up/hooklib/common.sh
+# Global imports
+import sys
 
-services=("haproxy" \
-          "mysql" \
-          "ghost")
+# Conjure-up specific
+sys.path.insert(1, "/usr/share/conjure-up/hooklib")  # noqa
 
-checkUnitsForErrors $services
-
-if [ $(unitStatus ghost 0) != "active" ]; then
-    exposeResult "Ghost is not ready yet" 0 "false"
-fi
-
-if [ $(unitJujuStatus mysql 0) != "idle" ]; then
-    exposeResult "MySQL is not ready yet" 0 "false"
-fi
-
-if [ $(unitJujuStatus haproxy 0) != "idle" ]; then
-    exposeResult "HAProxy is not ready yet" 0 "false"
-fi
+import juju  # noqa
+from writer import log, success, fail, error  # noqa
 
 
-exposeResult "Applications ready" 0 "true"
+def main():
+    log.debug("Running deploy-done for Ghost installation.")
+    juju_status = juju.status()
+    agent_states = []
+    for k, v in juju_status['applications'].items():
+        if 'units' in v:
+            for unit in v['units']:
+                unit = v['units'][unit]['workload-status']['current']
+                agent_states.append(unit)
+    if any([state == 'error' for state in agent_states]):
+        error('Error in one of the applications deployment')
+
+    log.debug("Checking agent_states: {}".format(agent_states))
+    if agent_states.count('active') == 1 and agent_states.count('idle') == 2:
+        success('Applications are ready')
+
+    fail('Applications not ready yet')
+
+
+if __name__ == "__main__":
+    main()
