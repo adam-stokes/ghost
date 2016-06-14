@@ -17,8 +17,11 @@ def main():
     for k, v in juju_status['applications'].items():
         if 'units' in v:
             for unit in v['units']:
-                unit = v['units'][unit]['workload-status']['current']
-                agent_states.append(unit)
+                _unit = v['units'][unit]
+                unit_status = _unit['workload-status']['current']
+                if unit_status == 'unknown':
+                    unit_status = _unit['juju-status']['current']
+                agent_states.append(unit_status)
     if any([state == 'error' for state in agent_states]):
         error('Error in one of the applications deployment')
 
