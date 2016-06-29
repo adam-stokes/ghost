@@ -1,7 +1,25 @@
-#!/bin/bash
+#!/usr/bin/env python3
 
-. /usr/share/conjure-up/hooklib/common.sh
+# Global imports
+import sys
+import os
+from subprocess import run, CalledProcessError
 
-debug "Setting Blog URL to $BLOGURL"
+# Conjure-up specific
+sys.path.insert(1, "/usr/share/conjure-up/hooklib")  # noqa
 
-exposeResult "Visit your Ghost application at $BLOGURL" 0 "true"
+from writer import success, fail, error, log
+
+
+BLOGURL = os.environ.get('BLOGURL', None)
+
+if BLOGURL is not None:
+    try:
+        run('juju set-config ghost url={}'.format(BLOGURL),
+            shell=True, check=True)
+        success("Visit your Ghost application at {}".format(BLOGURL))
+    except CalledProcessError as e:
+        log.error(e)
+        error("Unable to set URL for ghost: ".format(e))
+else:
+    fail("Could not determine a BLOGURL to set")
