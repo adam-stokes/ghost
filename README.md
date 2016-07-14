@@ -2,9 +2,9 @@
 
 Ghost - Ghost blogging with MySQL.
 
-# Usage
+# Synopsis
 
-    conjure-up ~conjure/ghost
+    conjure-up ghost
 
 # License
 
