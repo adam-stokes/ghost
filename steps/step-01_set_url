@@ -1,16 +1,10 @@
 #!/usr/bin/env python3
-
-# Global imports
-import sys
-import os
+from conjureup.hooklib.writer import success, fail, error
 from subprocess import run, CalledProcessError
+import logging
+import os
 
-# Conjure-up specific
-sys.path.insert(1, "/usr/share/conjure-up/hooklib")  # noqa
-
-from writer import success, fail, error, log
-
-
+log = logging.getLogger('conjureup')
 BLOGURL = os.environ.get('BLOGURL', None)
 
 if BLOGURL is not None:
