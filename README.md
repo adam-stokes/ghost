@@ -4,7 +4,8 @@ Ghost - Ghost blogging with MySQL.
 
 # Synopsis
 
-    conjure-up ghost
+    snap install conjure-up
+    conjure-up battlemidget/ghost
 
 # License
 
